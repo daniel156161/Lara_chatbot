@@ -1,12 +1,17 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi there", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "patterns": ["Hi", "Hey", "Hola", "Hi there", "How are you", "Is anyone there?", "Hello", "Good day"],
          "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "what_are_you",
+         "patterns": ["What is your name?", "what are you?", "who are you?", "your name pls?"],
+         "responses": ["Hi, I'm  Lara", "I'm Lara ", "Call me Lara"],
          "context": [""]
         },
         {"tag": "goodbye",
          "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
-         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon.", "I will miss you"],
          "context": [""]
         },
         {"tag": "thanks",
@@ -16,12 +21,12 @@
         },
         {"tag": "noanswer",
          "patterns": [],
-         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "responses": ["Sorry, kindly rephrase the question", "Sorry, can't understand you", "Please give me more information", "Not sure I understand"],
          "context": [""]
         },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-         "responses": [""],
+         "responses": ["I am a maybe friendly Fox Lady that like to Chat with you"],
          "context": [""]
         }
    ]
