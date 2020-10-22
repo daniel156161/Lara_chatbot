@@ -1,6 +1,3 @@
-
-# Description: Das ist ein Chat Bot Program
-
 #Import Librarys
 from nltk.chat.util import Chat, reflections
 import tensorflow as tf
@@ -40,12 +37,12 @@ pairs = [
     ['quit', ['Bis bald' , 'lass und bald wieder Chaten', 'bis bald hoffe wir sehen uns wieder']],
 ]
 
-#Eine Funktion um den chatbot zu starten
+#chatbot
 def chatty():
   os.system("clear")
-  print("KI ist bereit... \nGib quit ein um den Chat zu verlassen\n") #Standart Nachricht nach dem Start
+  print("Enter: quit  to Exit the Chat\n") #first massage
   chat = Chat(pairs,reflections )
   chat.converse()
 
-#Startet den Chatbot
+#Run Chatbot
 chatty()
