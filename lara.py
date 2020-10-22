@@ -2,6 +2,12 @@
 from nltk.chat.util import Chat, reflections
 import tensorflow as tf
 import os
+import json
+
+with open('intents.json') as json_data:
+    intents = json.load(json_data)
+
+intents
 
 pairs = [
     ['(mein name ist (.*)|Hi ich bin (.*))', ['Hi %2', 'Hallo %2, Mein Name ist Lara']],
