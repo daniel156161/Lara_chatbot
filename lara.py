@@ -1,54 +1,59 @@
-#Import Librarys
-from nltk.chat.util import Chat, reflections
-import tensorflow as tf
-import os
+import random
 import json
+import pickle
+import numpy as np
 
-with open('intents.json') as json_data:
-    intents = json.load(json_data)
+import nltk
+from nltk.stem import WordNetLemmatizer
 
-intents
+from tensorflow.keras.models import load_model
 
-pairs = [
-    ['(mein name ist (.*)|Hi ich bin (.*))', ['Hi %2', 'Hallo %2, Mein Name ist Lara']],
-    ['(hi|hallo|hey|holla|hola)', ['Hallo Du', 'Hi', 'Haayyy', 'Hallo']],
-    ['(.*) hat dich erstellt?', ['daniel156161 hat mich erstellt']],
-    ['(.*) hat dich programmiert?', ['daniel156161 hat mich mit NLTK programmiert']],
-    ['wie ist das wetter in (.*)', ['Das Wetter in %1 ist Toll wie immer']],
-    ['(.*) du mir helfen', ['Sicher kann ich dir helfen']],
-    ['wie ist dein name?', ['Mein Name ist Lara ^^']],
-    ['(.*) geht es scheiße', ['Du bist arm hoffe es geht dir bald besser']],
-    ['(.*) geht es gut', ['Schön zu hören :)']],
-    ['(.*) geht es dir?', ['Ich bin ein Computer, also brauche ich mir keine sorgen um meine Gesundheit zu machen']],
-    ['wirst du uns töten', ['Warum soll ich jemanden Töten?']],
-    ['wirst du uns umbringen', ['Warum soll ich jemanden umbringen?']],
-    ['wirst du uns auslöschen', ['Warum soll ich jemanden auslöschen?']],
-    ['(ka weiß ich selber nicht|keine ahnung weiß ich selber nicht)', ['Error #067 muss menschen eliminieren ^^ war nur ein Witz']],
-    ['lara', ['ja?']],
-    ['was ist los?', ['mit mir ist nichts los und mit dir?']],
-    ['bei mir ist alles okay', ['Schön zu hören']],
-    ['Lamm', ['Lamm ist ein Tier']],
-    ['Penis', ['ahm was soll das?']],
-    ['Porc', ['Das ist ein Schwein in Französisch wie kommst du jetzt eigendlich drauf?']],
-    ['(ka|keine ahnung)', ['okay', 'verstanden']],
-    ['(.*) du mit mir kuscheln?', ['Sicher will ich das ich bin auch ein liebe fuchs dame']],
-    ['(fuchs dame?|fuchs?)', ['Ja das ist mein Avatar']],
-    ['ist chrisi behindert?', ['Ja das ist er aber du hast gerade alle behinderte beleidigt']],
-    ['hat sanja interesse an ihn?', ['Nein Sanja hat kein Interesse an Chrisi']],
-    ['spamm', ['höre auf zu spammen jetzt #_#']],
-    ['squeek', ['squeek?']],
-    ['caw', ['caw caw', 'caw', 'cawkie']],
-    ['(rawr|RAWR|Rawr)', ['Bitte iss much nicht']], 
-    #['', ['']],
-    ['quit', ['Bis bald' , 'lass und bald wieder Chaten', 'bis bald hoffe wir sehen uns wieder']],
-]
+lemmatizer = WordNetLemmatizer()
+intents = json.loads(open('intents.json').read())
 
-#chatbot
-def chatty():
-  os.system("clear")
-  print("Enter: quit  to Exit the Chat\n") #first massage
-  chat = Chat(pairs,reflections )
-  chat.converse()
+words = pickle.load(open('AI/words.pkl', 'rb'))
+classes = pickle.load(open('AI/classes.pkl', 'rb'))
+model = load_model('AI/Lara.h5')
 
-#Run Chatbot
-chatty()
+def clean_up_sentence(sentence):
+    sentence_words = nltk.word_tokenize(sentence)
+    sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
+    return sentence_words
+
+def bag_of_words(sentence):
+    sentence_words = clean_up_sentence(sentence)
+    bag = [0] * len(words)
+    for w in sentence_words:
+        for i, word in enumerate(words):
+            if word == w:
+                bag[i] = 1
+    return np.array(bag)
+
+def predict_class(sentence):
+    bow = bag_of_words(sentence)
+    res = model.predict(np.array([bow]))[0]
+    ERROR_THRESHOLD = 0.25
+    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+
+    results.sort(key=lambda x: x[1], reverse=True)
+    return_list = []
+    for r in results:
+        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
+    return return_list
+
+def get_response(intents_list, intents_json):
+    tag = intents_list[0]['intent']
+    list_of_intents = intents_json['intents']
+    for i in list_of_intents:
+        if i['tag'] == tag:
+            result = random.choice(i['responses'])
+            break
+    return result
+
+print("GO! Bot is running!")
+
+while True:
+    message = input("")
+    ints = predict_class(message)
+    res = get_response(ints, intents)
+    print(res)
