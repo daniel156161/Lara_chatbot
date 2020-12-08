@@ -12,7 +12,7 @@
          "responses": ["Hi, I'm  Lara", "I'm Lara ", "Call me Lara", "I am a Chatbot name Lara"]
         },
         {"tag": "goodbye",
-         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time", "exit"],
          "responses": ["See you!", "Have a nice day", "Bye! Come back again soon.", "I will miss you"]
         },
         {"tag": "thanks",
@@ -32,7 +32,7 @@
          "responses": ["My owner Daniel is 23 years old!", "23 years!"]     
         },
         {"tag": "cookie",
-         "patterns": ["cookie", "rawr", "food?", "are your hungry"],
+         "patterns": ["cookie", "rawr", "food?", "are your hungry", "do you like a cookie?", "do you like food?"],
          "responses": ["Please give caw a Cookie", "Rawr", "Please give me a Cookie", "All Cookies are mine", "Caw Caw Caw Caw"]     
         }
    ]
