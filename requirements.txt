@@ -1,2 +1,5 @@
 nltk
 tensorflow
+pickle
+json
+random
