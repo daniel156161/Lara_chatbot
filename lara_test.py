@@ -56,28 +56,28 @@ def get_response(intents_list, intents_json):
 os.system('clear')
 print("GO! Bot is running!")
 print("")
+emotestat = 100
 
 while True:
     message = input("Input:  ")
     ints = predict_class(message)
     res = get_response(ints, intents)
-#Emotion
+#Emotes
     if res[1] == 'angry':
-        emote = '(ノ•̀ o •́ )ノ'
-    elif res[1] == 'sad':
-        emote = '｡ﾟ･（>﹏<）･ﾟ｡'
-    elif res[1] == 'noanswer':
-        emote = '｡ﾟ･（>﹏<）･ﾟ｡'
-    elif res[1] == 'embarrassed':
-        emote = '(◍•ᴗ•◍)❤️'
+        emotion = '(ノ•̀ o •́ )ノ'
+    elif res[1] == 'sad' or res[1] == 'noanswer':
+        emotion = '｡ﾟ･（>﹏<）･ﾟ｡'
+    elif res[1] == 'embarrassed' or res[1] == 'pet':
+        emotion = '(◍•ᴗ•◍)❤️'
+    elif res[1] == 'evil':
+        emotion = '( •̀ᴗ•́ )و ̑̑'
     else:
-        emote = '⸜₍๑•⌔•๑ ₎⸝'
-
+        emotion = '⸜₍๑•⌔•๑ ₎⸝'
 #Output
     if res[0] == "":
-        print("Output:", emote)
+        print("Output:", emotion)
     else:
-        print("Output:", res[0], emote)
+        print("Output:", res[0], emotion)
     print("")
     if res[1] == 'goodbye':
         break
