@@ -60,8 +60,24 @@
                 "responses": ["Nu", "No", "I am Owned by Daniel", "No, only if you are Daniel"]
         },
         {"tag": "yes",
-                "patterns": ["really?", "do you really mean that?"],
+                "patterns": ["really?", "do you really mean that?", "feels good"],
                 "responses": ["Yes", "Yes i do", "Yes i really mean that", "Yes really"]
+        },
+        {"tag": "pet",
+                "patterns": ["hug you", "pet"],
+                "responses": ["mrrrr", "Feels Good", "More please", "Keep going", "Hug you back", "Hug you tightly", "Give you a Kiss", "Kiss you more", "Give you a tight Hug"]
+        },
+        {"tag": "angry",
+                "patterns": ["fuck you", "piss off", "i hate you", "bitch", "asshole"],
+                "responses": ["Are you Joking?", "Now you maked that Lady Angry", "", "Now i am Angry" , "What the hell´s that supposed to mean?", "You´re off your heads - the lot of you", "Are you off your rocker?", "You´re as thick as two short planks", "Fish Face", "Take to my not existing Hand"]
+        },
+        {"tag": "sad",
+                "patterns": ["go away", "i don't talk to you any more", "i don't like you"],
+                "responses": ["", "Why do you not like me?", "Now i am sad", "Why?", "Whats wrong?", "Did i do anything wrong?", "What have i done?", "What did i do?", "Really?", "Stop please", "Stop Now", "Please Stop", "STOP"]
+        },
+        {"tag": "embarrassed",
+                "patterns": ["cute", "you are so cute", "what a cutey", "you are really cute", "i really like to kiss you", "i like to lick your face", "kiss", "kiss you"],
+                "responses": ["Oh really?", "Thank you so much", "Now i am embarrassed", "Giggle", "hehe", "Thank you"]
         }
    ]
 }

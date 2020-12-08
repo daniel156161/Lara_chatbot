@@ -58,10 +58,26 @@ print("GO! Bot is running!")
 print("")
 
 while True:
-    message = input("")
+    message = input("Input:  ")
     ints = predict_class(message)
     res = get_response(ints, intents)
-    print(res[0])
+#Emotion
+    if res[1] == 'angry':
+        emote = '(ノ•̀ o •́ )ノ'
+    elif res[1] == 'sad':
+        emote = '｡ﾟ･（>﹏<）･ﾟ｡'
+    elif res[1] == 'noanswer':
+        emote = '｡ﾟ･（>﹏<）･ﾟ｡'
+    elif res[1] == 'embarrassed':
+        emote = '(◍•ᴗ•◍)❤️'
+    else:
+        emote = '⸜₍๑•⌔•๑ ₎⸝'
+
+#Output
+    if res[0] == "":
+        print("Output:", emote)
+    else:
+        print("Output:", res[0], emote)
     print("")
     if res[1] == 'goodbye':
         break
