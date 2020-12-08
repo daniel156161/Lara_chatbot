@@ -56,7 +56,6 @@ def get_response(intents_list, intents_json):
 os.system('clear')
 print("GO! Bot is running!")
 print("")
-emotestat = 100
 
 while True:
     message = input("Input:  ")
