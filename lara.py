@@ -46,9 +46,10 @@ def get_response(intents_list, intents_json):
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
+            restag = tag
             result = random.choice(i['responses'])
             break
-    return result
+    return result,restag
 
 print("GO! Bot is running!")
 
@@ -56,4 +57,6 @@ while True:
     message = input("")
     ints = predict_class(message)
     res = get_response(ints, intents)
-    print(res)
+    print(res[0])
+    if res[1] == 'goodbye':
+        break
