@@ -12,6 +12,8 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 
+import os
+
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 
@@ -61,6 +63,8 @@ modul.add(Dropout(0.5))
 modul.add(Dense(64, activation='relu'))
 modul.add(Dropout(0.5))
 modul.add(Dense(len(train_y[0]), activation='softmax'))
+
+os.system("clear")
 
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 modul.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
