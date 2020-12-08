@@ -30,6 +30,10 @@
         {"tag": "age",
          "patterns": ["how old are you", "how old", "what is your age", "age?"],
          "responses": ["My owner Daniel is 23 years old!", "23 years!"]     
+        },
+        {"tag": "cookie",
+         "patterns": ["cookie", "rawr", "food?", "are your hungry"],
+         "responses": ["Please give caw a Cookie", "Rawr", "Please give me a Cookie", "All Cookies are mine", "Caw Caw Caw Caw"]     
         }
    ]
 }
