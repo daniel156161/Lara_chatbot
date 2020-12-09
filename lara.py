@@ -62,7 +62,10 @@ while True:
     ints = predict_class(message)
     res = get_response(ints, intents)
 #Emotes
-    if res[1] == 'angry':
+    if res[1] == 'run':
+        emotion = '(⌐■_■)'
+        os.system(message.split()[1]+'& 2>/dev/null')
+    elif res[1] == 'angry':
         emotion = '(ノ•̀ o •́ )ノ'
     elif res[1] == 'sad' or res[1] == 'noanswer':
         emotion = '｡ﾟ･（>﹏<）･ﾟ｡'
@@ -70,6 +73,14 @@ while True:
         emotion = '(◍•ᴗ•◍)❤️'
     elif res[1] == 'evil':
         emotion = '( •̀ᴗ•́ )و ̑̑'
+    elif res[1] == 'cookie':
+        emotion = '༼ つ ◕_◕ ༽つ gib'
+    elif res[1] == 'caw':
+        emotion = '(◉ܫ◉)'
+    elif res[1] == 'wizard':
+        emotion = ' (∩｀-´)⊃━☆ﾟ.*･｡ﾟ'
+    elif res[1] == 'lockup':
+        emotion = '(ー。ー) zzz'
     else:
         emotion = '⸜₍๑•⌔•๑ ₎⸝'
 #Output
@@ -78,5 +89,7 @@ while True:
     else:
         print("Output:", res[0], emotion)
     print("")
-    if res[1] == 'goodbye':
+    if res[1] == 'goodbye' or res[1] == 'sleeping':
         break
+    elif res[1] == 'lockup':
+        os.system("sleep 10 && systemctl suspend -i")

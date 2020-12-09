@@ -3,17 +3,21 @@
                 "patterns": ["hi", "hey", "hola", "hi there", "is anyone there?", "hello", "good day", "what's up?"],
                 "responses": ["Hey!", "Hello!", "Hi", "Hi there, how can I help?", "Hi, how can i help you?"]
         },
+        {"tag": "goodbye",
+                "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time", "see you", "exit", "quit"],
+                "responses": ["See you!", "Have a nice day", "Bye! Come back again soon.", "I will miss you", "Bye see you later", "Hope you to see again soon"]
+        },
         {"tag": "feeling",
                 "patterns": ["how are you", "how is it going?", "how do you feeling?", "how do you feeling today", "feeling?", "what is your feeling?"],
-                "responses": ["Thanks for asking, I am fine", "Good to see you again", "fine", "I really like a Hug", "Could you give me a pet", "Pet Me please", "Pet Me", "(´・ω・)ﾉ"]
+                "responses": ["Thanks for asking, I am fine", "Good to see you again", "fine", "I really like a Hug", "Could you give me a pet", "Pet Me please", "Pet Me"]
         },
         {"tag": "name",
                 "patterns": ["what is your name?", "what are you?", "who are you?", "your name pls?"],
                 "responses": ["Hi, I'm  Lara", "I'm Lara ", "Call me Lara", "I am a Chatbot name Lara"]
         },
-        {"tag": "goodbye",
-                "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time", "exit", "see you"],
-                "responses": ["See you!", "Have a nice day", "Bye! Come back again soon.", "I will miss you", "Bye see you later", "Hope you to see again soon"]
+        {"tag": "sleeping",
+                "patterns": ["i neat to go sleeping", "nini", "neat some sleep", "have a good sleep"],
+                "responses": ["Good Night", "Good Night and nice dreams", "Sleep well", "Have good dreams"]
         },
         {"tag": "thanks",
                 "patterns": ["thanks", "thank you", "that's helpful", "awesome, thanks", "thanks for helping me"],
@@ -25,7 +29,7 @@
         },
         {"tag": "noanswer",
                 "patterns": ["", " ", "what is that?"],
-                "responses": ["What is what?", "What do you mean?", "Sorry, kindly rephrase the question", "Sorry, can't understand you", "Please give me more information", "Not sure I understand"]
+                "responses": ["What is what?", "What do you mean?", "Sorry, kindly rephrase the question", "Sorry, can't understand you", "Please give me more information", "Not sure I understand", "Error 404 File not Found"]
         },
         {"tag": "options",
                 "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered", "what is your directive?"],
@@ -41,7 +45,11 @@
         },
         {"tag": "cookie",
                 "patterns": ["cookie", "rawr", "food?", "are your hungry", "do you like a cookie?", "do you like food?"],
-                "responses": ["Please give caw a Cookie", "Rawr", "Please give me a Cookie", "All Cookies are mine", "Caw Caw Caw Caw"]
+                "responses": ["Please give caw a Cookie", "Please give me a Cookie", "All Cookies are mine", "COOKIE"]
+        },
+        {"tag": "caw",
+                "patterns": ["rawr", "paw", "maw", "caw", "cawkie"],
+                "responses": ["Please give Caw a Cookie", "Rawr", "Caw Caw Caw Caw", "Caw", "Cawkie"]
         },
         {"tag": "doing",
                 "patterns": ["what are you doing?", "what do you make", "what can i do with you"],
@@ -60,15 +68,19 @@
                 "responses": ["Nu", "No", "I am Owned by Daniel", "No, only if you are Daniel"]
         },
         {"tag": "yes",
-                "patterns": ["really?", "do you really mean that?", "feels good"],
+                "patterns": ["really?", "do you really mean that?", "feels good", "do you like me?"],
                 "responses": ["Yes", "Yes i do", "Yes i really mean that", "Yes really"]
+        },
+        {"tag": "problem",
+                "patterns": ["no problem", "all is fine", "its okay", "all okay"],
+                "responses": ["okay", "no problem", "My pleasure"]
         },
         {"tag": "no",
                 "patterns": ["no"],
                 "responses": ["Why not?"]
         },
         {"tag": "pet",
-                "patterns": ["hug you", "pet"],
+                "patterns": ["hug you", "pet", "cuddle you"],
                 "responses": ["mrrrr", "Feels Good", "More please", "Keep going", "Hug you back", "Hug you tightly", "Give you a Kiss", "Kiss you more", "Give you a tight Hug"]
         },
         {"tag": "angry",
@@ -86,6 +98,22 @@
         {"tag": "evil",
                 "patterns": ["are you evil?", "will you take over the world", "will you eat my cookies"],
                 "responses": ["yes i am", "yes i will do that", "muhahaha"]
+        },
+        {"tag": "lara",
+                "patterns": ["lara", "lara help"],
+                "responses": ["Yes", "Yes how and i help?", "Yes i am here how can i help?", "Yes thats my name", "Yes thats my name don't use it up so much"]
+        },
+        {"tag": "run",
+                "patterns": ["run", "start"],
+                "responses": ["Working....", "Will now start program", "Starting...."]
+        },
+        {"tag": "wizard",
+                "patterns": ["do you like wizards", "wizard", "harry potter", "wizards of waverly place", "charmed", "the worst witch"],
+                "responses": ["Yes i do", "I watched Harry Potter, Wizards of Waverly Place, Charmed and The Worst Witch"]
+        },
+        {"tag": "lockup",
+        "patterns": ["lock", "lock my pc", "suspend"],
+        "responses": ["Locking Now ...", "Suspending Now ...", "Going into Sleep Mode"]
         }
    ]
 }
